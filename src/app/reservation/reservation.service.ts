@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Reservation } from '../models/reservation';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReservationService {
+  private apiUrl = 'http://localhost:3000';
+
   private reservations: Reservation[] = [];
+
+  constructor(private http: HttpClient) {}
 
   // CRUD
 
-  getReservations(): Reservation[] {
-    return this.reservations;
+  getReservations(): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(this.apiUrl + '/reservations');
   }
 
   getReservation(id: string): Reservation | undefined {
@@ -29,9 +35,7 @@ export class ReservationService {
   }
 
   updateReservation(id: string, updatedReservation: Reservation): void {
-    let index = this.reservations.findIndex(
-      (res) => res.id === id
-    );
+    let index = this.reservations.findIndex((res) => res.id === id);
     this.reservations[index] = updatedReservation;
   }
 }
