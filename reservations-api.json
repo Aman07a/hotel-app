@@ -1,0 +1,18 @@
+[
+  {
+    "id": 2,
+    "guestName": "tester",
+    "guestEmail": "test@test.com",
+    "roomNumber": 100,
+    "checkInDate": "2024-01-10",
+    "checkOutDate": "2024-01-10"
+  },
+  {
+    "id": 2,
+    "guestName": "admin",
+    "guestEmail": "admin@admin.com",
+    "roomNumber": 50,
+    "checkInDate": "2025-01-10",
+    "checkOutDate": "2025-01-10"
+  }
+]
